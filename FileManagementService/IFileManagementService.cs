@@ -12,7 +12,8 @@ using System.ServiceModel;
 namespace FileManagementService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Name = "FileManagementService", 
+                     Namespace ="http://erenkavaklioglu/WCFService")]
     public interface IFileManagementService
     {
         /// <summary>
@@ -23,6 +24,12 @@ namespace FileManagementService
         /// <returns>True if successful, False if failed</returns>
         [OperationContract]
         bool Login(string username, string password);
+
+        /// <summary>
+        /// Logout from service
+        /// </summary>
+        [OperationContract]
+        void Logout();
 
         /// <summary>
         /// Adds employee to list

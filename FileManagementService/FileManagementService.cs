@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿#region Signature
+/*
+Author : Eren Kavaklıoğlu
+Year   : 2019
+*/
+#endregion
+
 using FileDefinitions;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace FileManagementService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class FileManagementService : IFileManagementService
     {
-
-
-        #region Fields
-
-        
-
-        #endregion
-
         #region Methods - IFileManagementService Implementation
 
         /// <summary>
@@ -27,7 +21,7 @@ namespace FileManagementService
         /// <param name="employee">Employee information</param>
         public void AddEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            FileManager.AddEmployee(employee);
         }
 
         /// <summary>
@@ -37,7 +31,7 @@ namespace FileManagementService
         /// <returns>Employee information, null if username not exists</returns>
         public Employee GetEmployee(string username)
         {
-            throw new NotImplementedException();
+            return FileManager.GetEmployee(username);
         }
 
         /// <summary>
@@ -46,7 +40,7 @@ namespace FileManagementService
         /// <returns>List of employees</returns>
         public List<Employee> GetEmployees()
         {
-            throw new NotImplementedException();
+            return FileManager.GetEmployees();
         }
 
         /// <summary>
@@ -57,7 +51,15 @@ namespace FileManagementService
         /// <returns>True if successful, False if failed</returns>
         public bool Login(string username, string password)
         {
-            throw new NotImplementedException();
+            return FileManager.Login(username, password);
+        }
+
+        /// <summary>
+        /// Logout from service
+        /// </summary>
+        public void Logout()
+        {
+            FileManager.Logout();
         }
 
         #endregion
