@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDefinitions", "FileDefinitions\FileDefinitions.csproj", "{E3781421-1347-4990-90B2-4597420DDB76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{D3EA34A2-26A5-4F2C-994B-AFE176F240A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5887B39D-E157-45D3-A902-821DFD181E69} = {5887B39D-E157-45D3-A902-821DFD181E69}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

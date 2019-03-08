@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://erenkavaklioglu/WCFService" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://erenkavaklioglu/WCFService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://erenkavaklioglu/WCFService/Imports">
+      <xsd:import namespace="http://erenkavaklioglu/WCFService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/FileDefinitions" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FileManagementService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_AddEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployee" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_AddEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="FileManagementService_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FileManagementService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/Login" message="tns:FileManagementService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/LoginResponse" message="tns:FileManagementService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/Logout" message="tns:FileManagementService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/LogoutResponse" message="tns:FileManagementService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <wsdl:input wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployee" message="tns:FileManagementService_AddEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployeeResponse" message="tns:FileManagementService_AddEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployees" message="tns:FileManagementService_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeesResponse" message="tns:FileManagementService_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployee" message="tns:FileManagementService_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeeResponse" message="tns:FileManagementService_GetEmployee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
