@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagementService", "FileManagementService\FileManagementService.csproj", "{5887B39D-E157-45D3-A902-821DFD181E69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDefinitions", "FileDefinitions\FileDefinitions.csproj", "{E3781421-1347-4990-90B2-4597420DDB76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5887B39D-E157-45D3-A902-821DFD181E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5887B39D-E157-45D3-A902-821DFD181E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5887B39D-E157-45D3-A902-821DFD181E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3781421-1347-4990-90B2-4597420DDB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3781421-1347-4990-90B2-4597420DDB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3781421-1347-4990-90B2-4597420DDB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3781421-1347-4990-90B2-4597420DDB76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
