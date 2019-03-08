@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region Signature
+/*
+Author : Eren Kavaklıoğlu
+Year   : 2019
+*/
+#endregion
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TestClient
 {
@@ -20,9 +14,29 @@ namespace TestClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Constructors
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Eventhandlers
+
+        /// <summary>
+        /// Login button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            bool result = EmployeeManager.Login(textBoxUsername.Text, passwordBoxPassword.Password);
+
+            MessageBox.Show("Result: " + result);
+        }
+
+        #endregion
     }
 }
