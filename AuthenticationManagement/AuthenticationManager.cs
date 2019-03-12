@@ -181,7 +181,7 @@ namespace AuthenticationManagement
                         if (string.Equals(usr.Username, username) &&
                             string.Equals(usr.Password, password))
                         {
-                            result = new UserToken();
+                            result = new UserToken(usr);
                             AuthenticatedUsers.Add(result);
 
                             break;

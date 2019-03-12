@@ -43,6 +43,52 @@ namespace AuthenticationManagement
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public User()
+        {
+            InitializeClass();
+        }
+
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="user">User information</param>
+        public User(User user)
+        {
+            if (null == user)
+            {
+                InitializeClass();
+            }
+            else
+            {
+                Name = user.Name;
+                Surname = user.Surname;
+                Username = user.Username;
+                Password = user.Password;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Initializes the properties
+        /// </summary>
+        private void InitializeClass()
+        {
+            Name = string.Empty;
+            Surname = string.Empty;
+            Username = string.Empty;
+            Password = string.Empty;
+        }
+
+        #endregion
+
         #region Methods - Overrides
 
         /// <summary>

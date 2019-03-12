@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestClient"
         mc:Ignorable="d"
-        Title="Login" Height="170.822" Width="295.184">
+        Title="Login" Height="170.822" Width="295.184" WindowStartupLocation="CenterScreen">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="433*"/>

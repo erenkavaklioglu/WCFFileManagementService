@@ -53,12 +53,13 @@ namespace AuthenticationManagement
         /// <summary>
         /// Constructor
         /// </summary>
-        public UserToken()
-            : base()
+        /// <param name="user">User information</param>
+        public UserToken(User user)
+            : base(user)
         {
             LoginTime = DateTime.Now;
             TimeoutInterval = DEFAULT_TIMEOUT_INTERVAL;
-            TemporaryLoginID = new Guid();
+            TemporaryLoginID = Guid.NewGuid();
         }
 
         #endregion
