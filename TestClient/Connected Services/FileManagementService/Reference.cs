@@ -15,6 +15,155 @@ namespace TestClient.FileManagementService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/AuthenticationManagement")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TestClient.FileManagementService.UserToken))]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surname {
+            get {
+                return this.SurnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
+                    this.SurnameField = value;
+                    this.RaisePropertyChanged("Surname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserToken", Namespace="http://schemas.datacontract.org/2004/07/AuthenticationManagement")]
+    [System.SerializableAttribute()]
+    public partial class UserToken : TestClient.FileManagementService.User {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LoginTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid TemporaryLoginIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TimeoutIntervalField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LoginTime {
+            get {
+                return this.LoginTimeField;
+            }
+            set {
+                if ((this.LoginTimeField.Equals(value) != true)) {
+                    this.LoginTimeField = value;
+                    this.RaisePropertyChanged("LoginTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid TemporaryLoginID {
+            get {
+                return this.TemporaryLoginIDField;
+            }
+            set {
+                if ((this.TemporaryLoginIDField.Equals(value) != true)) {
+                    this.TemporaryLoginIDField = value;
+                    this.RaisePropertyChanged("TemporaryLoginID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TimeoutInterval {
+            get {
+                return this.TimeoutIntervalField;
+            }
+            set {
+                if ((this.TimeoutIntervalField.Equals(value) != true)) {
+                    this.TimeoutIntervalField = value;
+                    this.RaisePropertyChanged("TimeoutInterval");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/FileDefinitions")]
     [System.SerializableAttribute()]
     public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -159,34 +308,34 @@ namespace TestClient.FileManagementService {
     public interface FileManagementService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/Login", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/LoginResponse")]
-        bool Login(string username, string password);
+        TestClient.FileManagementService.UserToken Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/Login", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/LoginResponse")]
-        System.Threading.Tasks.Task<bool> LoginAsync(string username, string password);
+        System.Threading.Tasks.Task<TestClient.FileManagementService.UserToken> LoginAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/Logout", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/LogoutResponse")]
-        void Logout();
+        void Logout(TestClient.FileManagementService.UserToken token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/Logout", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/LogoutResponse")]
-        System.Threading.Tasks.Task LogoutAsync();
+        System.Threading.Tasks.Task LogoutAsync(TestClient.FileManagementService.UserToken token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployee", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployeeResponse")]
-        void AddEmployee(TestClient.FileManagementService.Employee employee);
+        void AddEmployee(TestClient.FileManagementService.UserToken token, TestClient.FileManagementService.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployee", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/AddEmployeeResponse")]
-        System.Threading.Tasks.Task AddEmployeeAsync(TestClient.FileManagementService.Employee employee);
+        System.Threading.Tasks.Task AddEmployeeAsync(TestClient.FileManagementService.UserToken token, TestClient.FileManagementService.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployees", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeesResponse")]
-        TestClient.FileManagementService.Employee[] GetEmployees();
+        TestClient.FileManagementService.Employee[] GetEmployees(TestClient.FileManagementService.UserToken token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployees", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeesResponse")]
-        System.Threading.Tasks.Task<TestClient.FileManagementService.Employee[]> GetEmployeesAsync();
+        System.Threading.Tasks.Task<TestClient.FileManagementService.Employee[]> GetEmployeesAsync(TestClient.FileManagementService.UserToken token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployee", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeeResponse")]
-        TestClient.FileManagementService.Employee GetEmployee(string username);
+        TestClient.FileManagementService.Employee GetEmployee(TestClient.FileManagementService.UserToken token, string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployee", ReplyAction="http://erenkavaklioglu/WCFService/FileManagementService/GetEmployeeResponse")]
-        System.Threading.Tasks.Task<TestClient.FileManagementService.Employee> GetEmployeeAsync(string username);
+        System.Threading.Tasks.Task<TestClient.FileManagementService.Employee> GetEmployeeAsync(TestClient.FileManagementService.UserToken token, string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -216,44 +365,44 @@ namespace TestClient.FileManagementService {
                 base(binding, remoteAddress) {
         }
         
-        public bool Login(string username, string password) {
+        public TestClient.FileManagementService.UserToken Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<bool> LoginAsync(string username, string password) {
+        public System.Threading.Tasks.Task<TestClient.FileManagementService.UserToken> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
         }
         
-        public void Logout() {
-            base.Channel.Logout();
+        public void Logout(TestClient.FileManagementService.UserToken token) {
+            base.Channel.Logout(token);
         }
         
-        public System.Threading.Tasks.Task LogoutAsync() {
-            return base.Channel.LogoutAsync();
+        public System.Threading.Tasks.Task LogoutAsync(TestClient.FileManagementService.UserToken token) {
+            return base.Channel.LogoutAsync(token);
         }
         
-        public void AddEmployee(TestClient.FileManagementService.Employee employee) {
-            base.Channel.AddEmployee(employee);
+        public void AddEmployee(TestClient.FileManagementService.UserToken token, TestClient.FileManagementService.Employee employee) {
+            base.Channel.AddEmployee(token, employee);
         }
         
-        public System.Threading.Tasks.Task AddEmployeeAsync(TestClient.FileManagementService.Employee employee) {
-            return base.Channel.AddEmployeeAsync(employee);
+        public System.Threading.Tasks.Task AddEmployeeAsync(TestClient.FileManagementService.UserToken token, TestClient.FileManagementService.Employee employee) {
+            return base.Channel.AddEmployeeAsync(token, employee);
         }
         
-        public TestClient.FileManagementService.Employee[] GetEmployees() {
-            return base.Channel.GetEmployees();
+        public TestClient.FileManagementService.Employee[] GetEmployees(TestClient.FileManagementService.UserToken token) {
+            return base.Channel.GetEmployees(token);
         }
         
-        public System.Threading.Tasks.Task<TestClient.FileManagementService.Employee[]> GetEmployeesAsync() {
-            return base.Channel.GetEmployeesAsync();
+        public System.Threading.Tasks.Task<TestClient.FileManagementService.Employee[]> GetEmployeesAsync(TestClient.FileManagementService.UserToken token) {
+            return base.Channel.GetEmployeesAsync(token);
         }
         
-        public TestClient.FileManagementService.Employee GetEmployee(string username) {
-            return base.Channel.GetEmployee(username);
+        public TestClient.FileManagementService.Employee GetEmployee(TestClient.FileManagementService.UserToken token, string username) {
+            return base.Channel.GetEmployee(token, username);
         }
         
-        public System.Threading.Tasks.Task<TestClient.FileManagementService.Employee> GetEmployeeAsync(string username) {
-            return base.Channel.GetEmployeeAsync(username);
+        public System.Threading.Tasks.Task<TestClient.FileManagementService.Employee> GetEmployeeAsync(TestClient.FileManagementService.UserToken token, string username) {
+            return base.Channel.GetEmployeeAsync(token, username);
         }
     }
 }

@@ -23,6 +23,11 @@ namespace TestClient
         /// </summary>
         private static FileManagementServiceClient _serviceController;
 
+        /// <summary>
+        /// Token for user authentication
+        /// </summary>
+        private static UserToken _Token;
+
         #endregion
 
         #region Properties
@@ -55,7 +60,16 @@ namespace TestClient
         /// <returns>True if successful, False if failed</returns>
         public static bool Login(string username, string password)
         {
-            return ServiceController.Login(username, password);
+            bool result = false;
+
+            _Token = ServiceController.Login(username, password);
+
+            if (null != _Token)
+            {
+                result = true;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -64,7 +78,7 @@ namespace TestClient
         /// <param name="employee">Employee</param>
         public static void AddEmployee(Employee employee)
         {
-            ServiceController.AddEmployee(employee);
+            ServiceController.AddEmployee(_Token, employee);
         }
 
         /// <summary>
@@ -73,7 +87,17 @@ namespace TestClient
         /// <returns>List of employees</returns>
         public static List<Employee> GetEmployees()
         {
-            return ServiceController.GetEmployees().ToList();
+            List<Employee> result = null;
+            Employee[] employees = null;
+
+            employees = ServiceController.GetEmployees(_Token);
+
+            if (null != employees)
+            {
+                result = employees.ToList();
+            }
+
+            return result;
         }
 
         #endregion

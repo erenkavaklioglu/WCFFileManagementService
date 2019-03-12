@@ -15,31 +15,12 @@ namespace FileManagementService
     /// </summary>
     public static class FileManager
     {
-        #region Constants
-
-        /// <summary>
-        /// Username for login
-        /// </summary>
-        private const string USERNAME = "Administrator";
-
-        /// <summary>
-        /// Password for login
-        /// </summary>
-        private const string PASSWORD = "LogMeIn";
-
-        #endregion
-
         #region Fields
 
         /// <summary>
         /// List of employees
         /// </summary>
         private static List<Employee> _Employees;
-
-        /// <summary>
-        /// System login status
-        /// </summary>
-        private static bool _loggedIn;
 
         #endregion
 
@@ -66,49 +47,19 @@ namespace FileManagementService
         #region Methods
 
         /// <summary>
-        /// Login for service usage
-        /// </summary>
-        /// <param name="username">Username</param>
-        /// <param name="password">Password</param>
-        /// <returns>True if successful, False if failed</returns>
-        public static bool Login(string username, string password)
-        {
-            _loggedIn = false;
-
-            if (string.Equals(username, USERNAME) &&
-                string.Equals(password, PASSWORD))
-            {
-                _loggedIn = true;
-            }
-
-            return _loggedIn;
-        }
-
-        /// <summary>
-        /// Logoout from service
-        /// </summary>
-        public static void Logout()
-        {
-            _loggedIn = false;
-        }
-
-        /// <summary>
         /// Adds employee to list
         /// </summary>
         /// <param name="employee">Employee information</param>
         public static void AddEmployee(Employee employee)
         {
-            if (_loggedIn)
+            if (null != employee)
             {
-                if (null != employee)
-                {
-                    Employee searchedEmployee = GetEmployee(employee.Username);
+                Employee searchedEmployee = GetEmployee(employee.Username);
 
-                    //Don't add item if same username exists
-                    if (null == searchedEmployee)
-                    {
-                        Employees.Add(employee);
-                    }
+                //Don't add item if same username exists
+                if (null == searchedEmployee)
+                {
+                    Employees.Add(employee);
                 }
             }
         }
@@ -119,14 +70,7 @@ namespace FileManagementService
         /// <returns></returns>
         public static List<Employee> GetEmployees()
         {
-            List<Employee> result = null;
-
-            if (_loggedIn)
-            {
-                result = Employees;
-            }
-
-            return result;
+            return Employees;
         }
 
         /// <summary>
@@ -138,18 +82,15 @@ namespace FileManagementService
         {
             Employee result = null;
 
-            if (_loggedIn)
+            if (!string.IsNullOrEmpty(username))
             {
-                if (!string.IsNullOrEmpty(username))
+                //Search for the same username
+                foreach (Employee employee in Employees)
                 {
-                    //Search for the same username
-                    foreach (Employee employee in Employees)
+                    if (string.Equals(username, employee.Username))
                     {
-                        if (string.Equals(username, employee.Username))
-                        {
-                            result = employee;
-                            break;
-                        }
+                        result = employee;
+                        break;
                     }
                 }
             }

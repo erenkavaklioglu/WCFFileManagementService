@@ -71,12 +71,17 @@
     <Compile Include="IFileManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileManagementService.cs" />
+    <Compile Include="ServiceAuthenticator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuthenticationManagement\AuthenticationManagement.csproj">
+      <Project>{511a0742-a0c0-4f75-8e5a-b301accb00e7}</Project>
+      <Name>AuthenticationManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileDefinitions\FileDefinitions.csproj">
       <Project>{e3781421-1347-4990-90b2-4597420ddb76}</Project>
       <Name>FileDefinitions</Name>

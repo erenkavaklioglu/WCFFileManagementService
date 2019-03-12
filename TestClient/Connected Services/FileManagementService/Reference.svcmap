@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f8805736-7ed9-4972-a805-87ea9d922403" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/FileManagementService/FileManagerService/mex" />
     <MetadataFile FileName="WCFService.xsd" MetadataType="Schema" ID="7be7d33f-41ce-456d-b01a-e31fb724f60f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/FileManagementService/FileManagerService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6aede0e4-eeca-4da7-a6ef-2db732720ee2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/FileManagementService/FileManagerService/mex" />
+    <MetadataFile FileName="AuthenticationManagement.xsd" MetadataType="Schema" ID="c682f2e8-2db7-489f-81bb-aef8f140c54a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/FileManagementService/FileManagerService/mex" />
     <MetadataFile FileName="FileDefinitions.xsd" MetadataType="Schema" ID="19297f76-6748-4740-b489-6c2e60190f7e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/FileManagementService/FileManagerService/mex" />
   </Metadata>
   <Extensions>

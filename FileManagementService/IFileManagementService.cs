@@ -5,6 +5,7 @@ Year   : 2019
 */
 #endregion
 
+using AuthenticationManagement;
 using FileDefinitions;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -23,34 +24,38 @@ namespace FileManagementService
         /// <param name="password">Password</param>
         /// <returns>True if successful, False if failed</returns>
         [OperationContract]
-        bool Login(string username, string password);
+        UserToken Login(string username, string password);
 
         /// <summary>
         /// Logout from service
         /// </summary>
+        /// <param name="token">User token to logout</param>
         [OperationContract]
-        void Logout();
+        void Logout(UserToken token);
 
         /// <summary>
         /// Adds employee to list
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <param name="employee">Employee information</param>
         [OperationContract]
-        void AddEmployee(Employee employee);
+        void AddEmployee(UserToken token, Employee employee);
 
         /// <summary>
         /// Get all employees
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <returns>List of employees</returns>
         [OperationContract]
-        List<Employee> GetEmployees();
+        List<Employee> GetEmployees(UserToken token);
 
         /// <summary>
         /// Get employee according to username
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <param name="username">Employee username</param>
         /// <returns>Employee information, null if username not exists</returns>
         [OperationContract]
-        Employee GetEmployee(string username);
+        Employee GetEmployee(UserToken token, string username);
     }
 }

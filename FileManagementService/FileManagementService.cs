@@ -5,6 +5,7 @@ Year   : 2019
 */
 #endregion
 
+using AuthenticationManagement;
 using FileDefinitions;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -18,29 +19,49 @@ namespace FileManagementService
         /// <summary>
         /// Adds employee to list
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <param name="employee">Employee information</param>
-        public void AddEmployee(Employee employee)
+        public void AddEmployee(UserToken token, Employee employee)
         {
-            FileManager.AddEmployee(employee);
+            if (ServiceAuthenticator.AuthManager.CheckAuthentication(token))
+            {
+                FileManager.AddEmployee(employee);
+            }
         }
 
         /// <summary>
         /// Get employee according to username
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <param name="username">Employee username</param>
         /// <returns>Employee information, null if username not exists</returns>
-        public Employee GetEmployee(string username)
+        public Employee GetEmployee(UserToken token, string username)
         {
-            return FileManager.GetEmployee(username);
+            Employee result = null;
+
+            if (ServiceAuthenticator.AuthManager.CheckAuthentication(token))
+            {
+                result = FileManager.GetEmployee(username);
+            }
+
+            return result;
         }
 
         /// <summary>
         /// Get all employees
         /// </summary>
+        /// <param name="token">Token for authentication control</param>
         /// <returns>List of employees</returns>
-        public List<Employee> GetEmployees()
+        public List<Employee> GetEmployees(UserToken token)
         {
-            return FileManager.GetEmployees();
+            List<Employee> result = null;
+
+            if (ServiceAuthenticator.AuthManager.CheckAuthentication(token))
+            {
+                result = FileManager.GetEmployees();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -48,18 +69,19 @@ namespace FileManagementService
         /// </summary>
         /// <param name="username">Username</param>
         /// <param name="password">Password</param>
-        /// <returns>True if successful, False if failed</returns>
-        public bool Login(string username, string password)
+        /// <returns>Token for the user</returns>
+        public UserToken Login(string username, string password)
         {
-            return FileManager.Login(username, password);
+            return ServiceAuthenticator.AuthManager.Authenticate(username, password);
         }
 
         /// <summary>
         /// Logout from service
         /// </summary>
-        public void Logout()
+        /// <param name="token">Token for authentication control</param>
+        public void Logout(UserToken token)
         {
-            FileManager.Logout();
+            ServiceAuthenticator.AuthManager.EndAuthentication(token);
         }
 
         #endregion
